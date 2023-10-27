@@ -1,4 +1,10 @@
 package com.backend.parcial.dao;
 
-public interface IDao {
+import java.util.List;
+
+public interface IDao<T> {
+    T guardar(T t);
+
+    public List<T> listarTodos();
+
 }
