@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class OdontologoH2ServiceTest {
     private OdontologoService odontologoService = new OdontologoService(new OdontologoDAOH2());
 
@@ -39,9 +42,14 @@ public class OdontologoH2ServiceTest {
 
         Odontologo odontologoRegistrado = odontologoService.guardarOdontologo(odontologo);
 
-        Assertions.assertTrue(odontologoRegistrado.getId() != 0);
+        assertTrue(odontologoRegistrado.getId() != 0);
 
     }
 
+    @Test
+    void deberiaRetornarUnaListaNoVacia(){
 
+        assertTrue(OdontologoService.listarTodos());
+
+    }
 }
